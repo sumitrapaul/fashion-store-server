@@ -113,8 +113,8 @@ async function run() {
       const review = req.body;
 
       const result = await reviewCollection.insertOne(review);
-
-      res.json(result)
+      console.log(result)
+      res.send(result)
     });
 
 
