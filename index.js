@@ -82,13 +82,13 @@ async function run() {
       }
     });
 
-    app.post("/carts", async (req, res) => {
-      const cartItems = req.body;
+    // app.post("/carts", async (req, res) => {
+    //   const cartItems = req.body;
 
-      const result = await cartCollection.insertOne(cartItems);
-      // console.log(result);
-      res.send(result);
-    });
+    //   const result = await cartCollection.insertOne(cartItems);
+    //   // console.log(result);
+    //   res.send(result);
+    // });
 
     app.get("/carts", async (req, res) => {
       let query = {};
