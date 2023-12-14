@@ -102,20 +102,20 @@ async function run() {
       res.send(result);
     });
 
-    // app.delete("/carts/:id", async (req, res) => {
-    //   const id = req.params.id;
-    //   const query = { _id: new ObjectId(id) };
-    //   const result = await cartCollection.deleteOne(query);
-    //   res.send(result);
-    // });
+    app.delete("/carts/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await cartCollection.deleteOne(query);
+      res.send(result);
+    });
 
-    // app.post("/reviews", async (req, res) => {
-    //   const review = req.body;
+    app.post("/reviews", async (req, res) => {
+      const review = req.body;
 
-    //   const result = await reviewCollection.insertOne(review);
+      const result = await reviewCollection.insertOne(review);
 
-    //   res.json(result)
-    // });
+      res.json(result)
+    });
 
 
     // app.get("/reviews", async (req, res) => {
