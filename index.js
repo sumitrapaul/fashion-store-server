@@ -61,26 +61,26 @@ async function run() {
     });
 
     //database thk update er jonno
-    app.put("/products/:id", async (req, res) => {
-      const id = req.params.id;
-      const filter = { _id: new ObjectId(id) };
-      const options = { upsert: true };
+    // app.put("/products/:id", async (req, res) => {
+    //   const id = req.params.id;
+    //   const filter = { _id: new ObjectId(id) };
+    //   const options = { upsert: true };
 
-      const updatedData = req.body;
-      const product = {
-        $set: updatedData,
-      };
+    //   const updatedData = req.body;
+    //   const product = {
+    //     $set: updatedData,
+    //   };
 
-      const result = await productCollection.updateOne(
-        filter,
-        product,
-        options
-      );
+    //   const result = await productCollection.updateOne(
+    //     filter,
+    //     product,
+    //     options
+    //   );
 
-      if (result.modifiedCount > 0) {
-        res.send(result);
-      }
-    });
+    //   if (result.modifiedCount > 0) {
+    //     res.send(result);
+    //   }
+    // });
 
     app.post("/carts", async (req, res) => {
       const cartItems = req.body;
