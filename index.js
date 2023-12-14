@@ -82,25 +82,25 @@ async function run() {
       }
     });
 
-    // app.post("/carts", async (req, res) => {
-    //   const cartItems = req.body;
+    app.post("/carts", async (req, res) => {
+      const cartItems = req.body;
 
-    //   const result = await cartCollection.insertOne(cartItems);
-    //   // console.log(result);
-    //   res.send(result);
-    // });
-
-    app.get("/carts", async (req, res) => {
-      let query = {};
-
-      if (req.query?.email) {
-        query = { email: req.query?.email };
-      }
-
-      const result = await cartCollection.find(query).toArray();
+      const result = await cartCollection.insertOne(cartItems);
       // console.log(result);
       res.send(result);
     });
+
+    // app.get("/carts", async (req, res) => {
+    //   let query = {};
+
+    //   if (req.query?.email) {
+    //     query = { email: req.query?.email };
+    //   }
+
+    //   const result = await cartCollection.find(query).toArray();
+    //   // console.log(result);
+    //   res.send(result);
+    // });
 
     app.delete("/carts/:id", async (req, res) => {
       const id = req.params.id;
