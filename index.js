@@ -118,17 +118,17 @@ async function run() {
     });
 
 
-    // app.get("/reviews", async (req, res) => {
-    //   let query = {};
+    app.get("/reviews", async (req, res) => {
+      let query = {};
 
-    //   if (req.query?.email) {
-    //     query = { email: req.query?.email };
-    //   }
+      if (req.query?.email) {
+        query = { email: req.query?.email };
+      }
 
-    //   const result = await reviewCollection.find(query).toArray();
-    //   console.log(result);
-    //   res.send(result);
-    // });
+      const result = await reviewCollection.find(query).toArray();
+      console.log(result);
+      res.send(result);
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
