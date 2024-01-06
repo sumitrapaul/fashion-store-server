@@ -30,7 +30,6 @@ async function run() {
     const reviewCollection = client.db("productDB").collection("reviews");
     app.post("/products", async (req, res) => {
       const newProduct = req.body;
-      // console.log(newProduct)
 
       const result = await productCollection.insertOne(newProduct);
       res.send(result);
@@ -52,11 +51,11 @@ async function run() {
 
     app.get("/productDetails/:id", async (req, res) => {
       const productId = req.params.id;
-      // console.log(productId)
+
       const query = { _id: new ObjectId(productId) };
-      // console.log(query)
+
       const product = await productCollection.findOne(query);
-      // console.log(product)
+
       res.send(product);
     });
 
@@ -86,7 +85,7 @@ async function run() {
       const cartItems = req.body;
 
       const result = await cartCollection.insertOne(cartItems);
-      // console.log(result);
+
       res.send(result);
     });
 
@@ -98,7 +97,7 @@ async function run() {
       }
 
       const result = await cartCollection.find(query).toArray();
-      // console.log(result);
+
       res.send(result);
     });
 
@@ -113,10 +112,9 @@ async function run() {
       const review = req.body;
 
       const result = await reviewCollection.insertOne(review);
-      console.log(result)
-      res.send(result)
+      console.log(result);
+      res.send(result);
     });
-
 
     app.get("/reviews", async (req, res) => {
       let query = {};
