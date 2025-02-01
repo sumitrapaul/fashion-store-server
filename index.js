@@ -41,7 +41,7 @@ async function run() {
       res.send(result);
     });
 
-    //database thk update er jonno data load
+    //database thk update er jonno
     app.get("/products/:id", async (req, res) => {
       const brand_name = req.params.id;
       const query = { brand_name: brand_name };
